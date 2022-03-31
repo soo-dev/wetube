@@ -3,11 +3,12 @@ import { trending, see ,edit, deleteVideo, upload } from "../controllers/videoCo
  
 const videoRouter = express.Router();
 
-videoRouter.get("/upload", upload );
+// /upload를 /:id 밑에 두면 url에서 'upload'를 'id' 값으로 인식
 videoRouter.get("/:id(\\d+)", see);
-videoRouter.get("/:id/edit", edit);
-videoRouter.get("/:id/delete", deleteVideo);
+videoRouter.get("/:id(\\d+)/edit", edit);
+videoRouter.get("/:id(\\d+)/delete", deleteVideo);
+videoRouter.get("/upload", upload );
 
 
  
-export default videoRouter;
+export default videoRouter; 
